@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ItemController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +25,9 @@ Route::get('/register', [AuthController::class, 'register']);
 
 Route::post('/signup', [AuthController::class, 'signup']);
 
-Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth');;
 
-Route::get('/dashboard', [AuthController::class, ItemController::class, 'index']);
+                                                                        //middleware para autenticar a rota
+Route::get('/dashboard', [ItemController::class, 'index'])->middleware('auth');
+
+Route::post('/shopping/store', [ItemController::class, 'store'])->middleware('auth');
