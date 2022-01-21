@@ -21,6 +21,6 @@ class ItemController extends Controller
             'name' => $request->name,
             'user_id' => $user->id
         ]);
-        return redirect('/dashboard');
+        return redirect('/dashboard'); ///teste
     }
 }
