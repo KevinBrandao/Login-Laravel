@@ -24,7 +24,7 @@ class AuthController extends Controller
      */
     public function signin(Request $request)
     {
-        if(auth()->attempt($request->only('email','password')));{
+        if(auth()->attempt($request->only('email','password'))){
         return redirect('/dashboard');
     }
           return redirect('/login');   
